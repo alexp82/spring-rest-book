@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
  */
 public class QuickPollClientV3BasicAuth {
 
-    private static final String QUICK_POLL_URI_V3 = "http://localhost:8080/v3/polls";
+    private static final String QUICK_POLL_URI_V3 = "http://localhost:8181/v3/polls";
     private RestTemplate restTemplate = new RestTemplate();
 
     public void deletePoll(Long pollId) {

@@ -25,7 +25,7 @@ public class ComputeResultController {
     @Inject
     private VoteRepository voteRepository;
 
-    @RequestMapping(value="/computeresult", method=RequestMethod.GET)
+    @RequestMapping(value = "/computeresult", method = RequestMethod.GET)
     @ApiOperation(value = "Computes the results of a given Poll", response = VoteResult.class)
     public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
         VoteResult voteResult = new VoteResult();
@@ -34,16 +34,16 @@ public class ComputeResultController {
         // Algorithm to count votes
         int totalVotes = 0;
         Map<Long, OptionCount> tempMap = new HashMap<Long, OptionCount>();
-        for(Vote v : allVotes) {
-            totalVotes ++;
+        for (Vote v : allVotes) {
+            totalVotes++;
             // Get the OptionCount corresponding to this Option
             OptionCount optionCount = tempMap.get(v.getOption().getId());
-            if(optionCount == null) {
+            if (optionCount == null) {
                 optionCount = new OptionCount();
                 optionCount.setOptionId(v.getOption().getId());
                 tempMap.put(v.getOption().getId(), optionCount);
             }
-            optionCount.setCount(optionCount.getCount()+1);
+            optionCount.setCount(optionCount.getCount() + 1);
         }
 
         voteResult.setTotalVotes(totalVotes);

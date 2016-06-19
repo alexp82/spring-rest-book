@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class QuickPollClientV3OAuth {
 
-    private static final String QUICK_POLL_URI_V3 = "http://localhost:8080/oauth2/v3/polls";
+    private static final String QUICK_POLL_URI_V3 = "http://localhost:8181/oauth2/v3/polls";
 
     public static void main(String[] args) {
         QuickPollClientV3OAuth client = new QuickPollClientV3OAuth();
@@ -28,7 +28,7 @@ public class QuickPollClientV3OAuth {
     private OAuth2RestTemplate restTemplate() {
         ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
         resourceDetails.setGrantType("password");
-        resourceDetails.setAccessTokenUri("http://localhost:8080/oauth/token");
+        resourceDetails.setAccessTokenUri("http://localhost:8181/oauth/token");
         resourceDetails.setClientId("quickpolliOSClient");
         resourceDetails.setClientSecret("top_secret");
 

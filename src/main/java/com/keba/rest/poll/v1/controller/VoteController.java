@@ -25,13 +25,13 @@ public class VoteController {
     @Inject
     private VoteRepository voteRepository;
 
-    @RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.POST)
+    @RequestMapping(value = "/polls/{pollId}/votes", method = RequestMethod.POST)
     @ApiOperation(
             value = "Casts a new vote for a given poll",
-            notes="The newly created vote Id will be sent in the location response header",
+            notes = "The newly created vote Id will be sent in the location response header",
             response = Void.class)
     @ApiResponses(value = {
-            @ApiResponse(code=201, message="Vote Created Successfully", response=Void.class) })
+            @ApiResponse(code = 201, message = "Vote Created Successfully", response = Void.class)})
     public ResponseEntity<Void> createVote(@PathVariable Long pollId, @RequestBody Vote vote) {
         vote = voteRepository.save(vote);
 
@@ -42,8 +42,8 @@ public class VoteController {
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.GET)
-    @ApiOperation(value = "Retrieves all the votes", response=Vote.class, responseContainer="List")
+    @RequestMapping(value = "/polls/{pollId}/votes", method = RequestMethod.GET)
+    @ApiOperation(value = "Retrieves all the votes", response = Vote.class, responseContainer = "List")
     public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
         return voteRepository.findByPoll(pollId);
     }

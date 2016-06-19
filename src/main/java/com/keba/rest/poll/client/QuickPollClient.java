@@ -17,7 +17,7 @@ import java.util.Set;
  */
 public class QuickPollClient {
 
-    private static final String QUICK_POLL_URI_V1 = "http://localhost:8080/v1/polls";
+    private static final String QUICK_POLL_URI_V1 = "http://localhost:8181/v1/polls";
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -86,7 +86,7 @@ public class QuickPollClient {
     }
 
     public void updatePoll(Poll poll) {
-        restTemplate.put(QUICK_POLL_URI_V1 + "/{pollId}", poll, poll.getId());
+        restTemplate.put(QUICK_POLL_URI_V1 + "/{pollId}", poll, poll.getPollId());
     }
 
     public void deletePoll(Long pollId) {

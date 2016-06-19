@@ -1,13 +1,14 @@
 package com.keba.rest.poll.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
-public class Poll {
+public class Poll extends ResourceSupport {
     @Id
     @GeneratedValue
     @Column(name = "POLL_ID")
@@ -21,11 +22,11 @@ public class Poll {
     @Size(min=2, max = 6)
     private Set<Option> options;
 
-    public Long getId() {
+    public Long getPollId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setPollId(Long id) {
         this.id = id;
     }
 
