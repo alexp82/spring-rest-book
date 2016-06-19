@@ -22,7 +22,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController("pollControllerV3")
-@RequestMapping("/v3/")
+@RequestMapping({"/v3/", "/oauth2/v3/"})
 @Api(value = "polls", description = "Poll API")
 public class PollController {
 
