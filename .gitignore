@@ -1,0 +1,15 @@
+build/
+.idea/
+.gradle/
+out/
+target/
+.iws
+.ipr
+.directory
+.settings
+.classpath
+.project
+
+
+/.nb-gradle/private/
+/.nb-gradle/profiles/private/
